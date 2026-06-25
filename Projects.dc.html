@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;}
+  body{margin:0;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:17px;line-height:1.58;
+    background-color:#F4F1EA;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  ::selection{background:#D8C3A6;color:#1C1A16;}
+  :root{--paper:#F4F1EA;--paper2:#ECE7DB;--card:#FBFAF6;--ink:#1C1A16;--soft:#5C5648;--mut:#8A8270;--line:#DDD6C6;--sage:#6F7A5A;--copper:#A2643A;--oxblood:#6E2F2A;--pad:clamp(24px,6vw,88px);}
+  a{color:inherit;}
+  .navlink:hover{color:#1C1A16 !important;}
+  .ulink{background-image:linear-gradient(var(--copper),var(--copper));background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .35s;}
+  .ulink:hover{background-size:100% 1px;}
+  .proj{transition:border-color .4s;}
+  .proj:hover{border-color:#C7B9A0 !important;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;height:2px;width:0%;background:var(--copper);z-index:95;" data-progress></div>
+
+<nav style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px var(--pad);background:rgba(244,241,234,0.9);backdrop-filter:blur(9px) saturate(1.1);border-bottom:1px solid var(--line);">
+  <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none;">
+    <span style="width:28px;height:28px;border:1px solid var(--copper);color:var(--copper);font-family:'Newsreader',serif;font-size:13px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;">S</span>
+    <span style="font-family:'Newsreader',serif;font-size:16px;font-weight:500;letter-spacing:.01em;">Sonakshi Sharma</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(10px,1.5vw,20px);overflow-x:auto;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;">
+    <a href="Home.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Home</a>
+    <a href="Build.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Build</a>
+    <a href="Projects.dc.html" class="navlink" style="text-decoration:none;color:#1C1A16;border-bottom:1px solid var(--copper);padding-bottom:3px;">Projects</a>
+    <a href="Research.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Research</a>
+    <a href="Writing.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Writing</a>
+    <a href="About.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">About</a>
+    <a href="Now.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Now</a>
+    <a href="mailto:hello@sonakshisharma.com" class="navlink" style="text-decoration:none;color:var(--paper);background:var(--ink);padding:7px 13px;border-radius:2px;">Contact ↗</a>
+  </div>
+</nav>
+
+<main style="max-width:1400px;margin:0 auto;padding:0 var(--pad);">
+
+  <!-- HEADER -->
+  <header style="padding:clamp(40px,7vh,84px) 0 clamp(28px,4vh,48px);border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+      <span style="width:26px;height:1px;background:var(--copper);"></span>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);">Projects</span>
+    </div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:0;color:#1A1813;max-width:18ch;">Systems I've shipped, experiments I've run.</h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.62;color:var(--soft);max-width:62ch;margin:22px 0 0;">Engineering work where the goal is a system that holds up, and research builds where the goal is a new result. Every entry carries the problem, the approach, the outcome, and the lesson — because shipping is only half of it.</p>
+  </header>
+
+  <!-- ENGINEERING PROJECTS -->
+  <section style="padding:clamp(44px,7vh,72px) 0 clamp(20px,3vh,32px);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--copper);"></span><h2 style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin:0;">Shipped systems &amp; engineering</h2></div>
+  </section>
+
+  <article class="proj" style="border-top:1px solid var(--ink);padding:clamp(28px,4vh,44px) 0;">
+    <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:clamp(20px,4vw,56px);align-items:start;">
+      <div>
+        <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--mut);">001 · 2024</span>
+        <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,2.8vw,35px);line-height:1.02;letter-spacing:-0.015em;margin:8px 0 14px;color:#1A1813;">Market Sentiment Prediction</h3>
+        <p style="font-size:16px;line-height:1.6;color:var(--soft);margin:0 0 16px;">A human-in-the-loop NLP pipeline turning noisy text into decision-ready signals.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">NLP</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Python</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">scikit-learn</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Finance</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 32px;">
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Problem</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Market text is loud and contradictory; raw sentiment scores rarely survive contact with a real decision.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Approach</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">An NLP pipeline with a human review step on uncertain cases, producing structured, auditable signals.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Results</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Cleaner, more trustworthy signals than a fully-automated baseline. <span style="color:var(--mut);">[ metrics to come ]</span></p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Lesson</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">The human-in-the-loop step isn't a crutch — it's where the system earns its trust.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="proj" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(28px,4vh,44px) 0;">
+    <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:clamp(20px,4vw,56px);align-items:start;">
+      <div>
+        <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--mut);">002 · 2025 · ongoing</span>
+        <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,2.8vw,35px);line-height:1.02;letter-spacing:-0.015em;margin:8px 0 14px;color:#1A1813;">Agentic Toolkit</h3>
+        <p style="font-size:16px;line-height:1.6;color:var(--soft);margin:0 0 16px;">Legible, auditable agents for expert workflows.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">LLM Tooling</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Agents</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">RAG</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 32px;">
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Problem</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Most agents hide their reasoning. For expert work, that's a non-starter — you can't be accountable for a black box.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Approach</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Agents that plan, retrieve, and act while exposing every step for inspection and intervention.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Status</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">In active development — the current main thread of my work.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Lesson</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Autonomy is not the goal; leverage with legibility is.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- RESEARCH PROJECTS -->
+  <section style="padding:clamp(40px,6vh,64px) 0 clamp(20px,3vh,32px);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--sage);"></span><h2 style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0;">Research builds</h2></div>
+  </section>
+
+  <article class="proj" style="border-top:1px solid var(--ink);padding:clamp(28px,4vh,44px) 0;">
+    <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:clamp(20px,4vw,56px);align-items:start;">
+      <div>
+        <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--mut);">003 · 2025</span>
+        <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,2.8vw,35px);line-height:1.02;letter-spacing:-0.015em;margin:8px 0 14px;color:#1A1813;">IntExR</h3>
+        <p style="font-size:16px;line-height:1.6;color:var(--soft);margin:0 0 16px;">Interpretable, evidence-grounded reasoning for clinical decision support.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Python</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">PyTorch</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Retrieval</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">XAI</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 32px;">
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Problem</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Clinical models predict, but rarely justify. A recommendation a clinician can't audit is a recommendation they shouldn't take.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Approach</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Couple prediction with retrieval of grounding evidence, surfacing the rationale and its sources alongside a calibrated confidence.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Results</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Auditable explanations that hold up to expert review. <span style="color:var(--mut);">[ quantitative results to come ]</span></p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Lesson</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">The explanation has to fit inside the clinician's time budget, or it doesn't exist.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="proj" style="border-top:1px solid var(--line);padding:clamp(28px,4vh,44px) 0;">
+    <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:clamp(20px,4vw,56px);align-items:start;">
+      <div>
+        <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--mut);">004 · 2024</span>
+        <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,2.8vw,35px);line-height:1.02;letter-spacing:-0.015em;margin:8px 0 14px;color:#1A1813;">Energy System Research</h3>
+        <p style="font-size:16px;line-height:1.6;color:var(--soft);margin:0 0 16px;">Calibrated probabilistic load forecasting with synthetic augmentation.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">PyTorch</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Time-Series</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Synthetic Data</span>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--sage);border:1px solid var(--line);border-radius:999px;padding:3px 10px;">Pandas</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 32px;">
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Problem</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Grid operators need forecasts, but a point estimate hides the risk that actually drives their decisions.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Approach</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Deep sequence models that output calibrated distributions, stress-tested with synthetic time-series where real data is thin.</p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Results</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Forecasts that carry honest uncertainty into the decision. <span style="color:var(--mut);">[ metrics to come ]</span></p></div>
+        <div><div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:7px;">Lesson</div><p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Synthetic data is a modeling assumption — name the belief it encodes, or it will bite you later.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section style="padding:clamp(48px,8vh,90px) 0;">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;">
+      <p style="font-family:'Newsreader',serif;font-weight:300;font-size:clamp(22px,2.6vw,32px);line-height:1.2;color:#1F1C16;margin:0;max-width:24ch;">Want the detail behind any of these? Let's talk.</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;">
+        <a href="mailto:hello@sonakshisharma.com" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--paper);background:var(--ink);padding:12px 18px;border-radius:2px;">Email me ↗</a>
+        <a href="Writing.dc.html" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:#3E3A31;border:1px solid #C9C2B2;padding:12px 18px;border-radius:2px;">Read the writing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top:1px solid var(--line);">
+  <div style="max-width:1400px;margin:0 auto;padding:clamp(28px,4vh,44px) var(--pad);display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="width:24px;height:24px;border:1px solid #C4BCAA;color:var(--mut);font-family:'Newsreader',serif;font-size:11px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;">S.S</span>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;">© 2026 Sonakshi Sharma</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;">
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">Scholar</a>
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">GitHub</a>
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">LinkedIn</a>
+      <a href="mailto:hello@sonakshisharma.com" class="ulink" style="text-decoration:none;color:var(--soft);">Email</a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:2000}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+  componentDidMount() {
+    const bar = document.querySelector('[data-progress]');
+    if (!bar) return;
+    const onScroll = (e) => {
+      let el = e && e.target && e.target.nodeType === 1 && e.target.scrollHeight !== undefined ? e.target : (document.scrollingElement || document.documentElement);
+      const max = el.scrollHeight - el.clientHeight;
+      bar.style.width = (max > 0 ? el.scrollTop / max * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    onScroll();
+  }
+}
+</script>
+</body>
+</html>

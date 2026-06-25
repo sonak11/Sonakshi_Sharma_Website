@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;}
+  body{margin:0;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:17px;line-height:1.58;
+    background-color:#F4F1EA;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  ::selection{background:#D8C3A6;color:#1C1A16;}
+  :root{--paper:#F4F1EA;--paper2:#ECE7DB;--card:#FBFAF6;--ink:#1C1A16;--soft:#5C5648;--mut:#8A8270;--line:#DDD6C6;--sage:#6F7A5A;--copper:#A2643A;--oxblood:#6E2F2A;--pad:clamp(24px,6vw,88px);}
+  a{color:inherit;}
+  .navlink:hover{color:#1C1A16 !important;}
+  .ulink{background-image:linear-gradient(var(--copper),var(--copper));background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .35s;}
+  .ulink:hover{background-size:100% 1px;}
+  .card-h{transition:transform .45s cubic-bezier(.16,.7,.2,1),box-shadow .45s,border-color .45s;}
+  .card-h:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,33,24,0.10);border-color:#CDBFA6 !important;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;height:2px;width:0%;background:var(--copper);z-index:95;" data-progress></div>
+
+<nav style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px var(--pad);background:rgba(244,241,234,0.9);backdrop-filter:blur(9px) saturate(1.1);border-bottom:1px solid var(--line);">
+  <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none;">
+    <span style="width:28px;height:28px;border:1px solid var(--copper);color:var(--copper);font-family:'Newsreader',serif;font-size:13px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;">S</span>
+    <span style="font-family:'Newsreader',serif;font-size:16px;font-weight:500;letter-spacing:.01em;">Sonakshi Sharma</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(10px,1.5vw,20px);overflow-x:auto;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;">
+    <a href="Home.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Home</a>
+    <a href="Build.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Build</a>
+    <a href="Projects.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Projects</a>
+    <a href="Research.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Research</a>
+    <a href="Writing.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Writing</a>
+    <a href="About.dc.html" class="navlink" style="text-decoration:none;color:#1C1A16;border-bottom:1px solid var(--copper);padding-bottom:3px;">About</a>
+    <a href="Now.dc.html" class="navlink" style="text-decoration:none;color:#6A6457;padding-bottom:3px;">Now</a>
+    <a href="mailto:hello@sonakshisharma.com" class="navlink" style="text-decoration:none;color:var(--paper);background:var(--ink);padding:7px 13px;border-radius:2px;">Contact ↗</a>
+  </div>
+</nav>
+
+<main style="max-width:1400px;margin:0 auto;padding:0 var(--pad);">
+
+  <!-- HEADER -->
+  <header style="padding:clamp(40px,7vh,84px) 0 clamp(28px,4vh,48px);border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+      <span style="width:26px;height:1px;background:var(--copper);"></span>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);">About</span>
+    </div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:0;color:#1A1813;max-width:20ch;">How a curious student became someone building toward research.</h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.62;color:var(--soft);max-width:64ch;margin:22px 0 0;">Not a résumé — a story. Where the curiosity came from, what bent it toward AI, and the people and habits that keep it honest.</p>
+  </header>
+
+  <!-- WHY (narrative columns) -->
+  <section style="padding:clamp(44px,7vh,80px) 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,0.6fr) minmax(0,1.7fr);gap:clamp(20px,4vw,56px);align-items:start;">
+    <div style="position:sticky;top:84px;">
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2.4vw,30px);line-height:1.06;margin:0;color:#1A1813;">The why<br>behind the what</h2>
+      <p style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:14px 0 0;">Four turns</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(26px,4vh,40px);">
+      <div style="display:grid;grid-template-columns:88px 1fr;gap:clamp(12px,2vw,28px);">
+        <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,38px);color:var(--sage);line-height:1;">Why CS</span>
+        <p style="font-size:17px;line-height:1.62;color:var(--soft);margin:0;max-width:60ch;">I liked that code was a place where an idea either worked or didn't — no hand-waving. Computer science gave me a way to take a vague question and make it concrete enough to be wrong, which is the first step to being right.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:88px 1fr;gap:clamp(12px,2vw,28px);border-top:1px solid var(--line);padding-top:clamp(26px,4vh,40px);">
+        <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(24px,2.4vw,34px);color:var(--sage);line-height:1.05;">Why Data Science</span>
+        <p style="font-size:17px;line-height:1.62;color:var(--soft);margin:0;max-width:60ch;">Statistics is where I learned humility. Adding a data-science focus and a stats minor taught me that the data has a point of view of its own — and that most mistakes happen before any model is trained.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:88px 1fr;gap:clamp(12px,2vw,28px);border-top:1px solid var(--line);padding-top:clamp(26px,4vh,40px);">
+        <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,38px);color:var(--sage);line-height:1;">Why Research</span>
+        <p style="font-size:17px;line-height:1.62;color:var(--soft);margin:0;max-width:60ch;">Coursework answers questions someone already solved. Research is the first time I got to sit with a question nobody had — and discovered I'd rather live in that discomfort than out of it. It's the only work that consistently keeps me up in a good way.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:88px 1fr;gap:clamp(12px,2vw,28px);border-top:1px solid var(--line);padding-top:clamp(26px,4vh,40px);">
+        <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,38px);color:var(--sage);line-height:1;">Why AI</span>
+        <p style="font-size:17px;line-height:1.62;color:var(--soft);margin:0;max-width:60ch;">Because the leverage is real, and so is the risk of getting it wrong. I'm drawn to the version of AI that makes a doctor, an operator, or an analyst better at their job — not the version that quietly takes the decision away from them. That distinction is the whole point for me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY (intl student) -->
+  <section style="padding:clamp(44px,7vh,80px) 0;border-bottom:1px solid var(--line);">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start;">
+      <div>
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;">The journey</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2.4vw,30px);line-height:1.1;margin:0 0 16px;color:#1A1813;">Building a life and a discipline at the same time.</h2>
+        <p style="font-size:17px;line-height:1.62;color:var(--soft);margin:0;max-width:56ch;">Coming up through the Rutgers Honors College meant learning the work and learning a new place at once. It taught me to be resourceful, to ask for help early, and to treat being an outsider to a field as an advantage — you notice the assumptions everyone else stopped seeing.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:clamp(24px,3vw,36px);">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:16px;">What it gave me</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="border-bottom:1px solid var(--line);padding-bottom:14px;"><div style="font-family:'Newsreader',serif;font-size:20px;color:#1F1C16;">Resourcefulness</div><div style="font-size:15px;color:var(--soft);">Figuring it out is a skill, not a fallback.</div></div>
+          <div style="border-bottom:1px solid var(--line);padding-bottom:14px;"><div style="font-family:'Newsreader',serif;font-size:20px;color:#1F1C16;">Perspective</div><div style="font-size:15px;color:var(--soft);">An outsider's eye for unstated assumptions.</div></div>
+          <div><div style="font-family:'Newsreader',serif;font-size:20px;color:#1F1C16;">Resilience</div><div style="font-size:15px;color:var(--soft);">Comfort with starting before you feel ready.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORSHIP + VALUES -->
+  <section style="padding:clamp(44px,7vh,80px) 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,64px);">
+    <div>
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;">Mentorship</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(20px,2.2vw,27px);line-height:1.12;margin:0 0 14px;color:#1A1813;">Teaching is how I check my own understanding.</h2>
+      <p style="font-size:16px;line-height:1.6;color:var(--soft);margin:0;max-width:54ch;">As an Honors College Peer Mentor, I work with students finding their footing the way I once was. Explaining an idea to someone else is the fastest way to find the holes in your own version of it — mentorship makes me a better researcher, not just a kinder one.</p>
+    </div>
+    <div>
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;">Values</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:12px;border-top:1px solid var(--line);padding-top:12px;"><span style="font-family:'Newsreader',serif;font-style:italic;color:var(--sage);">i.</span><span style="font-size:16px;color:#221E18;line-height:1.4;">Rigor over flash — earn the claim.</span></div>
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:12px;border-top:1px solid var(--line);padding-top:12px;"><span style="font-family:'Newsreader',serif;font-style:italic;color:var(--sage);">ii.</span><span style="font-size:16px;color:#221E18;line-height:1.4;">Build for the human who bears the consequence.</span></div>
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:12px;border-top:1px solid var(--line);padding-top:12px;"><span style="font-family:'Newsreader',serif;font-style:italic;color:var(--sage);">iii.</span><span style="font-size:16px;color:#221E18;line-height:1.4;">Curiosity is a discipline you practice daily.</span></div>
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;"><span style="font-family:'Newsreader',serif;font-style:italic;color:var(--sage);">iv.</span><span style="font-size:16px;color:#221E18;line-height:1.4;">Stay legible — to others, and to yourself.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I SHOW UP -->
+  <section style="padding:clamp(44px,7vh,80px) 0;border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;">
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2.4vw,30px);line-height:1.1;margin:0;color:#1A1813;">How I show up</h2>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);">On a team and on my own</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Initiative</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">I don't wait to be handed the problem. I find the gap, scope it, and bring back something working — then ask if it's the right thing.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Teamwork</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">I'm the teammate who writes the doc, unblocks others, and makes the handoff clean. A result no one else can build on is half a result.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Leadership</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">As a peer mentor I lead by lowering the barrier for everyone around me — clarity over authority, momentum over noise.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Communication</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">I can take a dense model and explain it to a clinician, a recruiter, or a teammate — and I write so the next person doesn't have to ask.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND ACADEMICS -->
+  <section style="padding:clamp(44px,7vh,80px) 0;border-bottom:1px solid var(--line);">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;">
+      <h2 style="font-family:'Newsreader',serif;font-weight:300;font-style:italic;font-size:clamp(21px,2.4vw,30px);margin:0;color:#1A1813;">Beyond academics</h2>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);">What keeps me level</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;">
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Cricket &amp; Tennis</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Sport taught me that consistency beats intensity, and that you only improve at what you measure honestly — a lesson that travels straight into research.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Fitness</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Training is my reset. Showing up on the days I don't feel like it is the same muscle that gets a hard problem across the finish line.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Reading</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">I collect first sentences. The best papers and the best novels open the same way — they make a promise and then keep it.</p>
+      </div>
+      <div class="card-h" style="background:var(--card);border:1px solid var(--line);border-radius:5px;padding:24px;">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;">Building things</div>
+        <p style="font-size:15px;line-height:1.55;color:var(--soft);margin:0;">Side projects are where I think with my hands. Half of what I know, I learned by building something slightly beyond me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE -->
+  <section style="padding:clamp(48px,8vh,96px) 0;">
+    <div style="background:var(--oxblood);border-radius:6px;padding:clamp(34px,5vw,64px);">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#D6A78F;margin-bottom:20px;">Where I'm heading</div>
+      <p style="font-family:'Newsreader',serif;font-weight:300;font-size:clamp(21px,3vw,37px);line-height:1.2;letter-spacing:-0.012em;color:#F4E9E0;margin:0;max-width:22ch;">Toward research that ships — intelligent systems experts actually trust, built in a lab that takes that responsibility seriously.</p>
+      <p style="font-size:17px;line-height:1.65;color:#D8BFB2;margin:24px 0 0;max-width:56ch;">A PhD track is the goal; the throughline is constant — augment human judgment, stay legible, and earn every claim.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:11px;margin-top:30px;">
+        <a href="mailto:hello@sonakshisharma.com" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--oxblood);background:#F4E9E0;padding:12px 18px;border-radius:2px;">Email me ↗</a>
+        <a href="Build.dc.html" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:#F4E9E0;border:1px solid #99564B;padding:12px 18px;border-radius:2px;">How I build</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top:1px solid var(--line);">
+  <div style="max-width:1400px;margin:0 auto;padding:clamp(28px,4vh,44px) var(--pad);display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="width:24px;height:24px;border:1px solid #C4BCAA;color:var(--mut);font-family:'Newsreader',serif;font-size:11px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;">S.S</span>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;">© 2026 Sonakshi Sharma</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;">
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">Scholar</a>
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">GitHub</a>
+      <a href="#" class="ulink" style="text-decoration:none;color:var(--soft);">LinkedIn</a>
+      <a href="mailto:hello@sonakshisharma.com" class="ulink" style="text-decoration:none;color:var(--soft);">Email</a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:2200}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+  componentDidMount() {
+    const bar = document.querySelector('[data-progress]');
+    if (!bar) return;
+    const onScroll = (e) => {
+      let el = e && e.target && e.target.nodeType === 1 && e.target.scrollHeight !== undefined ? e.target : (document.scrollingElement || document.documentElement);
+      const max = el.scrollHeight - el.clientHeight;
+      bar.style.width = (max > 0 ? el.scrollTop / max * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    onScroll();
+  }
+}
+</script>
+</body>
+</html>

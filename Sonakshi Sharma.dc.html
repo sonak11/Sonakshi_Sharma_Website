@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{margin:0;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:18px;line-height:1.6;
+    background-color:#F4F1EA;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+  ::selection{background:#D8C3A6;color:#1C1A16;}
+  :root{--paper:#F4F1EA;--paper-deep:#ECE7DB;--ink:#1C1A16;--sage:#6F7A5A;--copper:#A2643A;--oxblood:#6E2F2A;--chalk:#FBFAF6;--pad:clamp(22px,6vw,96px);}
+  [data-reveal]{transition:opacity 1s cubic-bezier(.16,.7,.2,1),transform 1s cubic-bezier(.16,.7,.2,1);}
+  [data-reveal].rv-in{opacity:1;transform:none;}
+  [data-tick]{width:0;transition:width .9s cubic-bezier(.16,.7,.2,1) .15s;}
+  [data-tick].tk-in{width:34px;}
+  a{color:inherit;}
+  .scroller::-webkit-scrollbar{height:6px;}
+  .scroller::-webkit-scrollbar-thumb{background:#D2CBBB;border-radius:3px;}
+  .scroller::-webkit-scrollbar-track{background:transparent;}
+  @keyframes scrollcue{0%{transform:translateY(0);opacity:.5;}50%{transform:translateY(6px);opacity:1;}100%{transform:translateY(0);opacity:.5;}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}[data-reveal]{opacity:1;transform:none;}[data-tick]{width:34px;}[data-reveal],[data-tick]{transition:none;}}
+</style>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;height:2px;width:0%;background:var(--copper);z-index:95;" data-progress></div>
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;padding:15px var(--pad);background:rgba(244,241,234,0.86);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid #E1DACB;">
+  <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#1C1A16;">
+    <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--copper);color:var(--copper);font-family:'Newsreader',serif;font-size:14px;font-weight:500;border-radius:2px;">S</span>
+    <span style="font-family:'Newsreader',serif;font-weight:500;font-size:17px;">Sonakshi Sharma</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(12px,2vw,26px);font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;">
+    <a href="#atlas" data-nav="atlas" style="text-decoration:none;color:#6A6457;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;">Atlas</a>
+    <a href="#work" data-nav="work" style="text-decoration:none;color:#6A6457;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;">Work</a>
+    <a href="#path" data-nav="path" style="text-decoration:none;color:#6A6457;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;">Path</a>
+    <a href="#notes" data-nav="notes" style="text-decoration:none;color:#6A6457;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;">Notes</a>
+    <a href="#resume" data-resume style="text-decoration:none;color:var(--paper);background:var(--ink);padding:7px 14px;border-radius:2px;letter-spacing:.1em;transition:background .3s;">Résumé</a>
+  </div>
+</nav>
+
+<div id="book" style="position:relative;max-width:1400px;margin:0 auto;padding:0 var(--pad);">
+  <span id="top"></span>
+  <div data-spine style="position:absolute;left:var(--pad);top:0;bottom:0;width:1px;background:#CFC8B8;z-index:0;">
+    <div data-spine-fill style="position:absolute;left:-0.5px;top:0;width:2px;height:0%;background:var(--copper);"></div>
+  </div>
+
+  <!-- ============ 01 · MASTHEAD ============ -->
+  <header style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);min-height:100vh;align-content:center;padding:120px 0 70px;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding-top:8px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">01</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;margin-top:6px;">S.S. / 2026 / NJ</span>
+    </div>
+    <div>
+      <div data-reveal style="display:flex;align-items:center;gap:13px;margin-bottom:clamp(26px,5vh,46px);">
+        <span style="width:30px;height:1px;background:var(--copper);"></span>
+        <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#7C7565;">AI Researcher &amp; Engineer — New Jersey</span>
+      </div>
+      <h1 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(40px,7.4vw,84px);line-height:1.02;letter-spacing:-0.02em;margin:0;color:#1A1813;max-width:13ch;">
+        Building systems that help experts make <span style="font-style:italic;font-weight:300;color:var(--copper);">better decisions.</span>
+      </h1>
+      <p data-reveal style="font-size:clamp(18px,1.5vw,20px);line-height:1.65;color:#5A5346;max-width:54ch;margin:clamp(28px,5vh,42px) 0 0;">
+        I work at the seam between human judgment and machine inference — in medicine, energy, and markets — designing intelligent systems an expert can interrogate, trust, and act on.
+      </p>
+
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,52px);margin-top:clamp(40px,7vh,64px);border-top:1px solid #DDD6C6;padding-top:26px;">
+        <div style="display:flex;align-items:center;gap:9px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--sage);animation:pulse 2.6s ease-in-out infinite;"></span>
+          <div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9A9282;margin-bottom:3px;">Currently building</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;color:#2A2620;">Agentic systems with a human at the center</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9A9282;margin-bottom:3px;">Now reading</div>
+          <div style="font-family:'Newsreader',serif;font-size:18px;color:#2A2620;">On the calibration of expert trust</div>
+        </div>
+        <div>
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9A9282;margin-bottom:3px;">As of</div>
+          <div data-now-date style="font-family:'Newsreader',serif;font-size:18px;color:#2A2620;">2026</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:30px;left:0;display:flex;align-items:center;gap:11px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8E8676;">
+      <span style="display:inline-block;animation:scrollcue 2.4s ease-in-out infinite;">↓</span> Begin
+    </div>
+  </header>
+
+  <!-- ============ 02 · THE PREMISE ============ -->
+  <section id="premise" style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);padding:clamp(70px,11vh,128px) 0;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">02</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">The Premise</span>
+    </div>
+    <div>
+      <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 clamp(44px,7vh,80px);color:#1A1813;max-width:18ch;">Three questions I keep returning to.</h2>
+
+      <div style="display:flex;flex-direction:column;gap:clamp(30px,5vh,54px);">
+        <div data-reveal style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:clamp(14px,2.5vw,34px);align-items:start;border-top:1px solid #DDD6C6;padding-top:clamp(24px,3.5vh,38px);">
+          <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--sage);">i.</span>
+          <div>
+            <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.22;letter-spacing:-0.01em;margin:0 0 12px;color:#211E18;max-width:24ch;">How do we build a system an expert is willing to trust — and right to?</p>
+            <p style="font-size:17px;line-height:1.65;color:#5C5648;max-width:58ch;margin:0;">On calibration, explanation, and the long distance between a model that is confident and a model that is correct.</p>
+          </div>
+        </div>
+        <div data-reveal style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:clamp(14px,2.5vw,34px);align-items:start;border-top:1px solid #DDD6C6;padding-top:clamp(24px,3.5vh,38px);">
+          <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--sage);">ii.</span>
+          <div>
+            <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.22;letter-spacing:-0.01em;margin:0 0 12px;color:#211E18;max-width:24ch;">Where should the human stay in the loop, and where should they step out?</p>
+            <p style="font-size:17px;line-height:1.65;color:#5C5648;max-width:58ch;margin:0;">Designing the seam between human judgment and machine inference so each does only what it is genuinely best at.</p>
+          </div>
+        </div>
+        <div data-reveal style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:clamp(14px,2.5vw,34px);align-items:start;border-top:1px solid #DDD6C6;padding-top:clamp(24px,3.5vh,38px);">
+          <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--sage);">iii.</span>
+          <div>
+            <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.22;letter-spacing:-0.01em;margin:0 0 12px;color:#211E18;max-width:24ch;">Can a model learn the shape of the future from the texture of the past?</p>
+            <p style="font-size:17px;line-height:1.65;color:#5C5648;max-width:58ch;margin:0;">On forecasting, synthetic data, and what it takes to teach a system to reason honestly about time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE THESIS (full-bleed oxblood) ============ -->
+  <section style="position:relative;z-index:2;width:100vw;margin-left:calc(50% - 50vw);background:var(--oxblood);color:#F2E6DC;padding:clamp(72px,13vh,150px) var(--pad);">
+    <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.24em;color:#C99B86;text-transform:uppercase;">A Position</span>
+      </div>
+      <div>
+        <div data-reveal style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#D6A78F;margin-bottom:clamp(26px,4vh,40px);">What I believe</div>
+        <p data-reveal style="font-family:'Newsreader',serif;font-weight:300;font-size:clamp(26px,4vw,52px);line-height:1.22;letter-spacing:-0.012em;margin:0;color:#F4E9E0;max-width:20ch;">
+          Intelligence worth deploying doesn't replace the expert in the room. It makes their judgment <span style="font-style:italic;color:#E8B89F;">sharper, faster, and more accountable.</span>
+        </p>
+        <p data-reveal style="font-size:18px;line-height:1.7;color:#D8BFB2;max-width:56ch;margin:clamp(30px,5vh,46px) 0 0;">
+          Every system I build starts from that conviction — legible by design, calibrated about its own uncertainty, and answerable to the person who carries the consequences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · RESEARCH ATLAS ============ -->
+  <section id="atlas" style="scroll-margin-top:80px;position:relative;z-index:2;width:100vw;margin-left:calc(50% - 50vw);background:var(--paper-deep);border-bottom:1px solid #E1DACB;padding:clamp(70px,11vh,128px) 0;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+        <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">03</span>
+        <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+        <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">The Atlas</span>
+      </div>
+      <div>
+        <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 14px;color:#1A1813;">Research Atlas</h2>
+        <p data-reveal style="font-size:17px;line-height:1.65;color:#5C5648;max-width:54ch;margin:0 0 clamp(34px,5vh,56px);">
+          A map of how the work connects. Hover a region to trace its threads — or <span style="color:var(--copper);">click one to filter the whole page</span> to that line of inquiry.
+        </p>
+
+        <div data-reveal style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(22px,4vw,52px);align-items:center;">
+          <div style="position:relative;width:100%;">
+            <svg viewBox="0 0 1000 660" style="width:100%;height:auto;display:block;overflow:visible;" aria-label="Interactive map of research areas">
+              <g data-links stroke="#C9C0AE" stroke-width="1.4" fill="none">
+                <line data-link="medical" x1="510" y1="330" x2="250" y2="150"></line>
+                <line data-link="hitl" x1="510" y1="330" x2="175" y2="420"></line>
+                <line data-link="energy" x1="510" y1="330" x2="470" y2="585"></line>
+                <line data-link="synth" x1="510" y1="330" x2="800" y2="500"></line>
+                <line data-link="agentic" x1="510" y1="330" x2="825" y2="165"></line>
+                <line data-link="medical hitl" x1="250" y1="150" x2="175" y2="420"></line>
+                <line data-link="energy synth" x1="470" y1="585" x2="800" y2="500"></line>
+                <line data-link="agentic hitl" x1="825" y1="165" x2="175" y2="420"></line>
+              </g>
+              <g data-node="hub" tabindex="0" role="button" aria-label="Expert Decision Support, central theme" style="cursor:pointer;">
+                <circle cx="510" cy="330" r="12" fill="var(--copper)"></circle>
+                <circle cx="510" cy="330" r="24" fill="none" stroke="var(--copper)" stroke-width="1" opacity="0.35"></circle>
+                <text x="510" y="372" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="13" letter-spacing="1.2" fill="#3A362F">EXPERT DECISION SUPPORT</text>
+              </g>
+              <g data-node="medical" tabindex="0" role="button" aria-label="Filter by Explainable Medical AI" style="cursor:pointer;">
+                <circle data-dot="medical" cx="250" cy="150" r="8" fill="#5F6B50"></circle>
+                <text x="250" y="124" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#211E18">Explainable Medical AI</text>
+              </g>
+              <g data-node="hitl" tabindex="0" role="button" aria-label="Filter by Human-in-the-loop Systems" style="cursor:pointer;">
+                <circle data-dot="hitl" cx="175" cy="420" r="8" fill="#5F6B50"></circle>
+                <text x="175" y="452" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#211E18">Human-in-the-loop</text>
+              </g>
+              <g data-node="energy" tabindex="0" role="button" aria-label="Filter by Energy Forecasting" style="cursor:pointer;">
+                <circle data-dot="energy" cx="470" cy="585" r="8" fill="#5F6B50"></circle>
+                <text x="470" y="617" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#211E18">Energy Forecasting</text>
+              </g>
+              <g data-node="synth" tabindex="0" role="button" aria-label="Filter by Synthetic Time-Series" style="cursor:pointer;">
+                <circle data-dot="synth" cx="800" cy="500" r="8" fill="#5F6B50"></circle>
+                <text x="800" y="532" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#211E18">Synthetic Time-Series</text>
+              </g>
+              <g data-node="agentic" tabindex="0" role="button" aria-label="Filter by Agentic AI Systems" style="cursor:pointer;">
+                <circle data-dot="agentic" cx="825" cy="165" r="8" fill="#5F6B50"></circle>
+                <text x="825" y="139" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#211E18">Agentic AI Systems</text>
+              </g>
+            </svg>
+          </div>
+          <div style="border-left:1px solid #D6CFBF;padding-left:clamp(20px,2.5vw,34px);min-height:210px;">
+            <div data-atlas-label style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;">The Throughline</div>
+            <div data-atlas-title style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);line-height:1.14;letter-spacing:-0.01em;color:#1A1813;margin-bottom:16px;">Expert Decision Support</div>
+            <p data-atlas-text style="font-size:17px;line-height:1.7;color:#5A5446;margin:0 0 22px;max-width:38ch;">Systems that augment expert judgment rather than replace it. Every region of the map feeds this one question — hover any to trace it, click to filter.</p>
+            <button data-atlas-filter-btn style="display:none;align-items:center;gap:8px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);background:none;border:1px solid var(--copper);border-radius:2px;padding:8px 13px;cursor:pointer;">Filter the page →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- filter banner -->
+  <div data-filter-banner style="display:none;position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:85;align-items:center;gap:14px;background:var(--ink);color:var(--paper);padding:11px 16px;border-radius:3px;box-shadow:0 8px 30px rgba(0,0,0,0.18);font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.06em;">
+    <span>Viewing by idea: <span data-filter-name style="color:#E2B79C;">—</span></span>
+    <button data-filter-clear style="background:none;border:1px solid #524C40;color:var(--paper);border-radius:2px;padding:5px 10px;cursor:pointer;font-family:inherit;font-size:11px;letter-spacing:.08em;">Clear ✕</button>
+  </div>
+
+  <!-- ============ 04 · SELECTED WORK ============ -->
+  <section id="work" style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);padding:clamp(70px,11vh,128px) 0;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">04</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">Specimens</span>
+    </div>
+    <div>
+      <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 clamp(36px,6vh,64px);color:#1A1813;">Selected work</h2>
+
+      <div data-work style="display:flex;flex-direction:column;">
+        <a href="#resume" data-workrow data-thread="medical hitl" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:54px minmax(0,1.25fr) minmax(0,1fr) 96px;gap:clamp(14px,2.5vw,38px);align-items:start;padding:clamp(26px,3.6vh,44px) 0;border-top:1px solid #DDD6C6;transition:padding-left .5s cubic-bezier(.16,.7,.2,1),opacity .4s;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:#A89F8D;padding-top:9px;">001</span>
+          <div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.02;letter-spacing:-0.015em;margin:0 0 12px;color:#1A1813;">IntExR</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Explainable AI</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Healthcare</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Retrieval</span>
+            </div>
+          </div>
+          <p style="font-size:16px;line-height:1.6;color:#5C5648;margin:5px 0 0;max-width:40ch;">An explainable medical-AI system that retrieves evidence-grounded rationales a clinician can audit — not merely accept. <span style="color:#A89F8D;">[ metric to come ]</span></p>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#A89F8D;text-align:right;padding-top:9px;">2025 →</span>
+        </a>
+
+        <a href="#resume" data-workrow data-thread="energy synth" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:54px minmax(0,1.25fr) minmax(0,1fr) 96px;gap:clamp(14px,2.5vw,38px);align-items:start;padding:clamp(26px,3.6vh,44px) 0;border-top:1px solid #DDD6C6;transition:padding-left .5s cubic-bezier(.16,.7,.2,1),opacity .4s;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:#A89F8D;padding-top:9px;">002</span>
+          <div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.02;letter-spacing:-0.015em;margin:0 0 12px;color:#1A1813;">Energy System Research</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Time-Series</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Forecasting</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Uncertainty</span>
+            </div>
+          </div>
+          <p style="font-size:16px;line-height:1.6;color:#5C5648;margin:5px 0 0;max-width:40ch;">Probabilistic forecasting for grid-scale systems — deep sequence models paired with calibrated uncertainty for operators making real decisions. <span style="color:#A89F8D;">[ metric to come ]</span></p>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#A89F8D;text-align:right;padding-top:9px;">2024 →</span>
+        </a>
+
+        <a href="#resume" data-workrow data-thread="hitl" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:54px minmax(0,1.25fr) minmax(0,1fr) 96px;gap:clamp(14px,2.5vw,38px);align-items:start;padding:clamp(26px,3.6vh,44px) 0;border-top:1px solid #DDD6C6;border-bottom:1px solid #DDD6C6;transition:padding-left .5s cubic-bezier(.16,.7,.2,1),opacity .4s;">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:12px;color:#A89F8D;padding-top:9px;">003</span>
+          <div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.02;letter-spacing:-0.015em;margin:0 0 12px;color:#1A1813;">Market Sentiment Prediction</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">NLP</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Finance</span>
+              <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6F7A5A;border:1px solid #D0CABA;border-radius:999px;padding:4px 11px;">Human-in-the-loop</span>
+            </div>
+          </div>
+          <p style="font-size:16px;line-height:1.6;color:#5C5648;margin:5px 0 0;max-width:40ch;">A human-in-the-loop pipeline that turns noisy market text into structured, decision-ready sentiment signals. <span style="color:#A89F8D;">[ metric to come ]</span></p>
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#A89F8D;text-align:right;padding-top:9px;">2024 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 · TRAJECTORY ============ -->
+  <section id="path" style="scroll-margin-top:80px;position:relative;z-index:2;width:100vw;margin-left:calc(50% - 50vw);background:var(--paper-deep);border-top:1px solid #E1DACB;border-bottom:1px solid #E1DACB;padding:clamp(70px,11vh,128px) 0;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 var(--pad);">
+      <div style="display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+          <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">05</span>
+          <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+          <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">The Path</span>
+        </div>
+        <div>
+          <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 12px;color:#1A1813;">Trajectory</h2>
+          <p data-reveal style="font-size:17px;line-height:1.65;color:#5C5648;max-width:54ch;margin:0 0 8px;">Where I came from, and where it's pointing. <span style="color:#A89F8D;">Drag or scroll across →</span></p>
+        </div>
+      </div>
+
+      <div data-reveal class="scroller" data-timeline style="margin-top:clamp(34px,5vh,52px);overflow-x:auto;cursor:grab;scroll-snap-type:x proximity;padding-bottom:18px;-webkit-overflow-scrolling:touch;">
+        <div style="display:flex;gap:0;min-width:max-content;border-top:1px solid #CFC8B8;padding-top:0;">
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px 0;position:relative;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--copper);"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2022</div>
+            <div style="font-family:'Newsreader',serif;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">Rutgers Honors College</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">CS + Data Science · Stats minor</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">Where the questions started — at the intersection of computation, statistics, and consequence.</p>
+          </div>
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px;position:relative;border-left:1px solid #DDD6C6;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#C4BCAA;"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2023</div>
+            <div style="font-family:'Newsreader',serif;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">RAD Collaboratory Researcher</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">Applied research</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">First real research footing — turning open questions into systems that run.</p>
+          </div>
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px;position:relative;border-left:1px solid #DDD6C6;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#C4BCAA;"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2024</div>
+            <div style="font-family:'Newsreader',serif;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">Cornell Break Through Tech AI Fellow</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">Fellowship</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">Machine learning at depth, alongside people building the field's next decade.</p>
+          </div>
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px;position:relative;border-left:1px solid #DDD6C6;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#C4BCAA;"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2024</div>
+            <div style="font-family:'Newsreader',serif;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">IEEE NLP Fellow</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">Fellowship · Language</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">Language as the interface between human reasoning and machine inference.</p>
+          </div>
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px;position:relative;border-left:1px solid #DDD6C6;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#C4BCAA;"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2025</div>
+            <div style="font-family:'Newsreader',serif;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">Honors College Peer Mentor</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">Mentorship</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">Teaching sharpens thinking. Helping the next cohort find their own questions.</p>
+          </div>
+          <div style="scroll-snap-align:start;flex:0 0 clamp(230px,24vw,300px);padding:26px clamp(20px,2vw,32px) 8px;position:relative;border-left:1px solid #DDD6C6;">
+            <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--sage);animation:pulse 2.6s ease-in-out infinite;"></span>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--copper);margin-bottom:14px;">2026 — now</div>
+            <div style="font-family:'Newsreader',serif;font-style:italic;font-size:23px;line-height:1.18;color:#1A1813;margin-bottom:6px;">Toward the lab</div>
+            <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8E8676;margin-bottom:10px;text-transform:uppercase;">What's next</div>
+            <p style="font-size:15px;line-height:1.55;color:#5C5648;margin:0;max-width:30ch;">Building agentic, explainable systems — and aiming squarely at research that ships.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · TOOLKIT ============ -->
+  <section id="toolkit" style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);padding:clamp(70px,11vh,128px) 0;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">06</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">The Toolkit</span>
+    </div>
+    <div>
+      <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 clamp(36px,6vh,56px);color:#1A1813;">The toolkit</h2>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,3vw,52px);">
+        <div style="border-top:1px solid #DDD6C6;padding-top:20px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:18px;">Methods</div>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Explainable AI &amp; interpretability</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Probabilistic forecasting</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Synthetic data generation</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Agentic orchestration &amp; RAG</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">NLP &amp; sequence modeling</li>
+          </ul>
+        </div>
+        <div style="border-top:1px solid #DDD6C6;padding-top:20px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:18px;">Domains</div>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Medical &amp; clinical AI</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Energy &amp; grid systems</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Financial markets</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Human-in-the-loop design</li>
+          </ul>
+        </div>
+        <div style="border-top:1px solid #DDD6C6;padding-top:20px;">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:18px;">Stack</div>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">Python · PyTorch</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">scikit-learn · pandas</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">SQL · R</li>
+            <li style="font-family:'Newsreader',serif;font-size:19px;color:#221E18;">LLM tooling · LangGraph</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 · FIELD NOTES ============ -->
+  <section id="notes" style="scroll-margin-top:80px;position:relative;z-index:2;width:100vw;margin-left:calc(50% - 50vw);background:var(--paper-deep);border-top:1px solid #E1DACB;border-bottom:1px solid #E1DACB;padding:clamp(70px,11vh,128px) 0;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+        <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">07</span>
+        <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+        <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">Field Notes</span>
+      </div>
+      <div>
+        <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 10px;color:#1A1813;">Field notes</h2>
+        <p data-reveal style="font-size:17px;line-height:1.65;color:#5C5648;max-width:52ch;margin:0 0 clamp(30px,5vh,50px);">Working thoughts, dated and revisited — where the questions get tested before they become papers.</p>
+
+        <div data-reveal style="display:flex;flex-direction:column;">
+          <a href="#resume" data-noterow data-thread="medical hitl" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:96px minmax(0,1fr);gap:clamp(14px,2vw,28px);padding:clamp(20px,2.8vh,32px) 0;border-top:1px solid #DAD3C3;transition:opacity .3s,padding-left .4s;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A89F8D;padding-top:5px;">Mar 2025</span>
+            <div>
+              <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 6px;color:#211E18;">On the cost of an explanation</h3>
+              <p style="font-size:16px;line-height:1.55;color:#625C4E;margin:0;max-width:54ch;">An explanation no one has time to read is not an explanation. What we actually owe the expert in the room.</p>
+            </div>
+          </a>
+          <a href="#resume" data-noterow data-thread="synth" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:96px minmax(0,1fr);gap:clamp(14px,2vw,28px);padding:clamp(20px,2.8vh,32px) 0;border-top:1px solid #DAD3C3;transition:opacity .3s,padding-left .4s;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A89F8D;padding-top:5px;">Jan 2025</span>
+            <div>
+              <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 6px;color:#211E18;">Synthetic data is a modeling assumption, not a free lunch</h3>
+              <p style="font-size:16px;line-height:1.55;color:#625C4E;margin:0;max-width:54ch;">Every generated sample encodes a belief about the world. We should say which belief, and out loud.</p>
+            </div>
+          </a>
+          <a href="#resume" data-noterow data-thread="energy hitl" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:96px minmax(0,1fr);gap:clamp(14px,2vw,28px);padding:clamp(20px,2.8vh,32px) 0;border-top:1px solid #DAD3C3;transition:opacity .3s,padding-left .4s;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A89F8D;padding-top:5px;">Nov 2024</span>
+            <div>
+              <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 6px;color:#211E18;">Calibration is a UX problem</h3>
+              <p style="font-size:16px;line-height:1.55;color:#625C4E;margin:0;max-width:54ch;">A probability is only useful if the person reading it knows what to do with it. Confidence is an interface.</p>
+            </div>
+          </a>
+          <a href="#resume" data-noterow data-thread="agentic hitl" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:96px minmax(0,1fr);gap:clamp(14px,2vw,28px);padding:clamp(20px,2.8vh,32px) 0;border-top:1px solid #DAD3C3;border-bottom:1px solid #DAD3C3;transition:opacity .3s,padding-left .4s;">
+            <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A89F8D;padding-top:5px;">Sep 2024</span>
+            <div>
+              <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 6px;color:#211E18;">What agents are actually for</h3>
+              <p style="font-size:16px;line-height:1.55;color:#625C4E;margin:0;max-width:54ch;">Autonomy is not the goal. Leverage with legibility is. A short argument against agents that hide their reasoning.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 · BEYOND THE NOTEBOOK ============ -->
+  <section id="beyond" style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);padding:clamp(70px,11vh,128px) 0;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">08</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">Beyond</span>
+    </div>
+    <div>
+      <h2 data-reveal style="font-family:'Newsreader',serif;font-weight:300;font-style:italic;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 clamp(36px,6vh,60px);color:#1A1813;">Beyond the notebook</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,60px);">
+        <div data-reveal style="border-top:1px solid #DDD6C6;padding-top:22px;">
+          <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2vw,26px);line-height:1.32;color:#1F1C16;margin:0 0 12px;">I collect first sentences.</p>
+          <p style="font-size:16px;line-height:1.65;color:#5C5648;margin:0;">The best papers and the best novels open the same way — they make a promise. I keep a file of openings that earned my attention.</p>
+        </div>
+        <div data-reveal style="border-top:1px solid #DDD6C6;padding-top:22px;">
+          <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2vw,26px);line-height:1.32;color:#1F1C16;margin:0 0 12px;">I think best on bad trains.</p>
+          <p style="font-size:16px;line-height:1.65;color:#5C5648;margin:0;">Some problems only loosen when I stop staring at them. Most of my better ideas arrived between stations, on the back of a receipt.</p>
+        </div>
+        <div data-reveal style="border-top:1px solid #DDD6C6;padding-top:22px;">
+          <p style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2vw,26px);line-height:1.32;color:#1F1C16;margin:0 0 12px;">I think research should have a point of view.</p>
+          <p style="font-size:16px;line-height:1.65;color:#5C5648;margin:0;">Neutrality is rarely honest. The work I admire most takes a position about how the world ought to work, then earns it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 · COLOPHON / CONTACT ============ -->
+  <section id="resume" style="scroll-margin-top:80px;position:relative;z-index:1;display:grid;grid-template-columns:clamp(54px,9vw,132px) minmax(0,1fr);gap:clamp(14px,3vw,52px);padding:clamp(80px,13vh,170px) 0 clamp(50px,7vh,80px);">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <span style="font-family:'Newsreader',serif;font-size:clamp(30px,3.4vw,46px);color:#C4BCAA;line-height:1;">09</span>
+      <span data-tick style="display:block;max-width:34px;height:2px;background:var(--copper);"></span>
+      <span style="writing-mode:vertical-rl;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8E8676;text-transform:uppercase;">Colophon</span>
+    </div>
+    <div id="contact" style="scroll-margin-top:80px;">
+      <div data-reveal style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#7C7565;margin-bottom:clamp(24px,4vh,40px);">Let's talk</div>
+      <a href="mailto:hello@sonakshisharma.com" data-reveal data-maillink style="text-decoration:none;color:#1A1813;font-family:'Newsreader',serif;font-weight:400;font-size:clamp(34px,6.5vw,84px);line-height:1.0;letter-spacing:-0.02em;display:block;margin-bottom:clamp(36px,6vh,64px);transition:color .4s;max-width:15ch;">
+        Let's build something <span style="font-style:italic;font-weight:300;">worth trusting.</span>
+      </a>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px;">
+        <a href="#" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--paper);background:var(--ink);padding:11px 18px;border-radius:2px;transition:opacity .3s;">Download résumé ↓</a>
+        <a href="mailto:hello@sonakshisharma.com" style="text-decoration:none;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.08em;color:#3E3A31;border:1px solid #C9C2B2;padding:11px 18px;border-radius:2px;transition:border-color .3s;">Email me</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(14px,3vw,40px);font-family:'Spline Sans Mono',monospace;font-size:13px;letter-spacing:.05em;border-top:1px solid #DDD6C6;padding-top:26px;">
+        <a href="#" style="text-decoration:none;color:#4A453B;border-bottom:1px solid #CBC4B4;padding-bottom:3px;transition:border-color .3s,color .3s;">Google Scholar</a>
+        <a href="#" style="text-decoration:none;color:#4A453B;border-bottom:1px solid #CBC4B4;padding-bottom:3px;transition:border-color .3s,color .3s;">GitHub</a>
+        <a href="#" style="text-decoration:none;color:#4A453B;border-bottom:1px solid #CBC4B4;padding-bottom:3px;transition:border-color .3s,color .3s;">LinkedIn</a>
+        <a href="#" style="text-decoration:none;color:#4A453B;border-bottom:1px solid #CBC4B4;padding-bottom:3px;transition:border-color .3s,color .3s;">Twitter / X</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #DDD6C6;padding:clamp(34px,5vh,56px) 0;margin-top:10px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid #C4BCAA;color:#8E8676;font-family:'Newsreader',serif;font-size:12px;border-radius:2px;">S.S</span>
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9A9282;text-transform:uppercase;">© 2026 Sonakshi Sharma</span>
+    </div>
+    <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9A9282;text-transform:uppercase;">Building systems worth trusting</span>
+    <span style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9A9282;text-transform:uppercase;">Set in Newsreader &amp; Spline Sans Mono</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:3200}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- live date ----
+    const nd = document.querySelector('[data-now-date]');
+    if (nd) { try { nd.textContent = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' }); } catch(e){} }
+
+    // ---- reveals + margin ticks ----
+    const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
+    const ticks = Array.from(document.querySelectorAll('[data-tick]'));
+    const show = (el) => el.classList.add('rv-in');
+    const showTick = (el) => el.classList.add('tk-in');
+    if (reduce) {
+      reveals.forEach(show);
+      ticks.forEach(showTick);
+    } else {
+      const inView = (el) => { const r = el.getBoundingClientRect(); return r.top < (window.innerHeight || 800) * 0.92 && r.bottom > 0; };
+      reveals.forEach(el => { if (inView(el)) show(el); });
+      ticks.forEach(t => { if (inView(t)) showTick(t); });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+      reveals.forEach(el => { if (!el.classList.contains('rv-in')) io.observe(el); });
+      const tio = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { showTick(e.target); tio.unobserve(e.target); } });
+      }, { threshold: 0.5 });
+      ticks.forEach(t => { if (!t.classList.contains('tk-in')) tio.observe(t); });
+      const sweep = () => { reveals.forEach(el => { if (!el.classList.contains('rv-in') && inView(el)) show(el); }); ticks.forEach(t => { if (!t.classList.contains('tk-in') && inView(t)) showTick(t); }); };
+      window.addEventListener('scroll', sweep, { passive: true, capture: true });
+      setTimeout(sweep, 500);
+      setTimeout(() => { reveals.forEach(show); ticks.forEach(showTick); }, 2800);
+    }
+
+    // ---- progress bar + spine fill ----
+    const bar = document.querySelector('[data-progress]');
+    const spineFill = document.querySelector('[data-spine-fill]');
+    const onScroll = (e) => {
+      let el = e && e.target && e.target.scrollHeight !== undefined && e.target.nodeType === 1 ? e.target : (document.scrollingElement || document.documentElement);
+      const max = el.scrollHeight - el.clientHeight;
+      const p = max > 0 ? el.scrollTop / max : 0;
+      if (bar) bar.style.width = (p * 100) + '%';
+      if (spineFill) spineFill.style.height = Math.min(100, p * 108) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    onScroll();
+
+    // ---- nav active ----
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    const sectionIds = ['atlas','work','path','notes'];
+    const navIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => {
+            const on = l.getAttribute('data-nav') === e.target.id;
+            l.style.color = on ? '#1A1813' : '#6A6457';
+            l.style.borderColor = on ? 'var(--copper)' : 'transparent';
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sectionIds.forEach(id => { const s = document.getElementById(id); if (s) navIo.observe(s); });
+
+    // ---- work / notes hover ----
+    document.querySelectorAll('[data-workrow]').forEach(row => {
+      row.addEventListener('mouseenter', () => { if (!this._filter) row.style.paddingLeft = '16px'; });
+      row.addEventListener('mouseleave', () => { row.style.paddingLeft = '0px'; });
+    });
+    const notes = Array.from(document.querySelectorAll('[data-noterow]'));
+    notes.forEach(n => {
+      n.addEventListener('mouseenter', () => { if (!this._filter) notes.forEach(o => { o.style.opacity = o === n ? '1' : '0.42'; }); });
+      n.addEventListener('mouseleave', () => { if (!this._filter) notes.forEach(o => { o.style.opacity = '1'; }); });
+    });
+    const mail = document.querySelector('[data-maillink]');
+    if (mail) {
+      mail.addEventListener('mouseenter', () => { mail.style.color = 'var(--copper)'; });
+      mail.addEventListener('mouseleave', () => { mail.style.color = '#1A1813'; });
+    }
+
+    // ---- timeline drag-to-scroll ----
+    const tl = document.querySelector('[data-timeline]');
+    if (tl) {
+      let down = false, sx = 0, sl = 0;
+      tl.addEventListener('mousedown', (e) => { down = true; sx = e.pageX; sl = tl.scrollLeft; tl.style.cursor = 'grabbing'; });
+      window.addEventListener('mouseup', () => { down = false; tl.style.cursor = 'grab'; });
+      tl.addEventListener('mousemove', (e) => { if (!down) return; e.preventDefault(); tl.scrollLeft = sl - (e.pageX - sx); });
+    }
+
+    // ---- Research Atlas: hover trace + click filter ----
+    const ATLAS = {
+      hub: { label: 'The Throughline', title: 'Expert Decision Support', text: 'Systems that augment expert judgment rather than replace it. Every region of the map feeds this one question — hover any to trace it, click to filter.', adj: ['medical','hitl','energy','synth','agentic'] },
+      medical: { label: 'Region 01 · click to filter', title: 'Explainable Medical AI', text: 'Models that surface auditable, evidence-grounded reasoning a clinician can interrogate before they act — explanation as a clinical instrument, not a footnote.', adj: ['hub','hitl'] },
+      hitl: { label: 'Region 02 · click to filter', title: 'Human-in-the-loop Systems', text: 'Designing the seam where human judgment and machine inference hand off cleanly — and deciding, deliberately, who holds the pen at each step.', adj: ['hub','medical','agentic'] },
+      energy: { label: 'Region 03 · click to filter', title: 'Energy Forecasting', text: 'Calibrated probabilistic forecasts for grid operators making consequential, time-pressured decisions under genuine uncertainty.', adj: ['hub','synth'] },
+      synth: { label: 'Region 04 · click to filter', title: 'Synthetic Time-Series', text: 'Generating data that preserves the statistical texture of the real thing — for training and stress-testing where reality is scarce or sensitive.', adj: ['hub','energy'] },
+      agentic: { label: 'Region 05 · click to filter', title: 'Agentic AI Systems', text: 'Orchestrating tools and models into agents that stay legible and steerable by the people they are meant to serve.', adj: ['hub','hitl'] }
+    };
+    const labelEl = document.querySelector('[data-atlas-label]');
+    const titleEl = document.querySelector('[data-atlas-title]');
+    const textEl = document.querySelector('[data-atlas-text]');
+    const fbtn = document.querySelector('[data-atlas-filter-btn]');
+    const links = Array.from(document.querySelectorAll('[data-link]'));
+    const nodes = Array.from(document.querySelectorAll('[data-node]'));
+    let hovered = null;
+
+    const tracePanel = (key) => {
+      const d = ATLAS[key]; if (!d) return;
+      if (labelEl) labelEl.textContent = d.label;
+      if (titleEl) titleEl.textContent = d.title;
+      if (textEl) textEl.textContent = d.text;
+      if (fbtn) {
+        if (key === 'hub') { fbtn.style.display = 'none'; }
+        else { fbtn.style.display = 'inline-flex'; fbtn.textContent = 'Filter by ' + d.title + ' →'; fbtn.setAttribute('data-key', key); }
+      }
+    };
+    const traceLines = (key) => {
+      links.forEach(l => {
+        const ends = l.getAttribute('data-link').split(' ');
+        const on = key === 'hub' ? ends.includes('hub') : ends.includes(key);
+        l.setAttribute('stroke', on ? 'var(--copper)' : '#C9C0AE');
+        l.setAttribute('stroke-width', on ? '2' : '1.4');
+        l.setAttribute('opacity', on ? '0.95' : (key === 'hub' ? '1' : '0.4'));
+      });
+      nodes.forEach(n => {
+        const nk = n.getAttribute('data-node');
+        const active = key === 'hub' || nk === key || (ATLAS[key] && ATLAS[key].adj.includes(nk));
+        n.style.opacity = active ? '1' : '0.4';
+        const dot = n.querySelector('[data-dot]');
+        if (dot) dot.setAttribute('fill', nk === key && nk !== 'hub' ? 'var(--copper)' : '#5F6B50');
+      });
+    };
+    const resetTrace = () => {
+      if (this._filter) { traceLines(this._filter); tracePanel(this._filter); return; }
+      links.forEach(l => { l.setAttribute('stroke', '#C9C0AE'); l.setAttribute('stroke-width', '1.4'); l.setAttribute('opacity', '1'); });
+      nodes.forEach(n => { n.style.opacity = '1'; const dot = n.querySelector('[data-dot]'); if (dot) dot.setAttribute('fill', '#5F6B50'); });
+      tracePanel('hub');
+    };
+
+    // ---- page filter ----
+    const banner = document.querySelector('[data-filter-banner]');
+    const fname = document.querySelector('[data-filter-name]');
+    const fclear = document.querySelector('[data-filter-clear]');
+    const targets = Array.from(document.querySelectorAll('[data-thread]'));
+    const applyFilter = (key) => {
+      this._filter = key;
+      targets.forEach(t => {
+        const match = t.getAttribute('data-thread').split(' ').includes(key);
+        t.style.opacity = match ? '1' : '0.28';
+        t.style.filter = match ? 'none' : 'saturate(0.4)';
+      });
+      if (fname) fname.textContent = ATLAS[key] ? ATLAS[key].title : key;
+      if (banner) banner.style.display = 'flex';
+      traceLines(key); tracePanel(key);
+    };
+    const clearFilter = () => {
+      this._filter = null;
+      targets.forEach(t => { t.style.opacity = '1'; t.style.filter = 'none'; });
+      if (banner) banner.style.display = 'none';
+      resetTrace();
+    };
+    if (fclear) fclear.addEventListener('click', clearFilter);
+    if (fbtn) fbtn.addEventListener('click', () => { const k = fbtn.getAttribute('data-key'); if (k) { applyFilter(k); const w = document.getElementById('work'); if (w) w.scrollIntoView({ behavior: 'smooth' }); } });
+
+    nodes.forEach(n => {
+      const key = n.getAttribute('data-node');
+      n.style.transition = 'opacity .4s ease';
+      n.addEventListener('mouseenter', () => { hovered = key; traceLines(key); tracePanel(key); });
+      n.addEventListener('mouseleave', () => { hovered = null; resetTrace(); });
+      n.addEventListener('focus', () => { traceLines(key); tracePanel(key); });
+      n.addEventListener('blur', () => { resetTrace(); });
+      const act = () => { if (key === 'hub') { clearFilter(); } else { applyFilter(key); } };
+      n.addEventListener('click', act);
+      n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+    });
+  }
+}
+</script>
+</body>
+</html>
